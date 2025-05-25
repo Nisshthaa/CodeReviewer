@@ -21,7 +21,7 @@ useEffect(()=>{
 async function reviewCode() {
   try {
     const response = await axios.post(
-      'https://codereviewerbackend.onrender.com',
+      'https://codereviewerbackend.onrender.com/ai/your-endpoint',
       { code },
       {
         withCredentials: true,
