@@ -19,7 +19,9 @@ useEffect(()=>{
 })
 
 async function reviewCode(){
-  const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+  const response = axios.post('https://codereviewerbackend.onrender.com/ai/your-endpoint', data, {
+  withCredentials: true, // <-- Add this line if you need credentials
+});
     setReview(response.data)
 
 }
