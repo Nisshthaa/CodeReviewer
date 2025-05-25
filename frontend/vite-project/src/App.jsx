@@ -18,12 +18,19 @@ useEffect(()=>{
   prism.highlightAll()
 })
 
-async function reviewCode(){
-  const response =await axios.post('https://codereviewerbackend.onrender.com/ai/your-endpoint', data, {
-  withCredentials: true, // <-- Add this line if you need credentials
-});
-    setReview(response.data)
-
+async function reviewCode() {
+  try {
+    const response = await axios.post(
+      'https://codereviewerbackend.onrender.com',
+      { code },
+      {
+        withCredentials: true,
+      }
+    );
+    setReview(response.data);
+  } catch (error) {
+    console.error("Error reviewing code:", error);
+  }
 }
   return (
     <>
